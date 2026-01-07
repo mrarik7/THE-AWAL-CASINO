@@ -32,7 +32,7 @@ def spin_result():
 
 # ---------------- UI ----------------
 st.markdown("<h1 style='text-align:center; color:#00ffff;'>🎰 THE AWAL CASINO 🤑</h1>", unsafe_allow_html=True)
-st.markdown(f"<h3 style='text-align:center; color:#ff00ff;'>📈 Balance: {st.session_state.bal}</h3>", unsafe_allow_html=True)
+st.markdown(f"<h3 style='text-align:center; color:#ff00ff;'>📈 Balance: {st.session_state.bal} tk</h3>", unsafe_allow_html=True)
 #------------------------------------------
 
 
@@ -81,7 +81,7 @@ if st.button('🎰 SPIN'):
             win = bet * multiplier
             st.session_state.bal += win
             outcome = f"+{win}"
-            st.success(f"🏆 You won {win}!")
+            st.success(f"🏆 You won {win} tk!")
 
         st.session_state.history.append((bet, result, outcome))
 
@@ -136,3 +136,4 @@ if st.session_state.history:
 st.button('refresh')
 if st.button('withdraw:'):
     st.text('hahaha you got scamed')
+

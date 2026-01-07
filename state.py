@@ -14,20 +14,21 @@ if 'history' not in st.session_state:
 
 
 def spin_result():
-    r = random.random() * 100  
+    r = random.random() * 100  # 0–100%
 
-    if r < 45:  
+    if r < 70:  # 0x probability 70%
         return '0x'
-    elif r < 60: 
+    elif r < 80:  # 1x–2x probability 10%
         return f"{random.randint(1, 2)}x"
-    elif r < 90:  
+    elif r < 90:  # 3x–5x probability 10%
         return f"{random.randint(3, 5)}x"
-    elif r < 115:
+    elif r < 95:  # 6x–10x probability 5%
         return f"{random.randint(6, 10)}x"
-    elif r < 135:  
+    elif r < 98:  # 11x–15x probability 3%
         return f"{random.randint(11, 15)}x"
-    else:  
+    else:  # 16x–20x probability 2%
         return f"{random.randint(16, 20)}x"
+
 
 # ---------------- UI ----------------
 st.markdown("<h1 style='text-align:center; color:#00ffff;'>🎰 THE AWAL CASINO 🤑</h1>", unsafe_allow_html=True)

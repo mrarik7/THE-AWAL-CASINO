@@ -16,17 +16,15 @@ if 'history' not in st.session_state:
 def spin_result():
     r = random.random() * 100  # 0–100%
 
-    if r < 70:  # 0x probability 70%
+    if r < 75:  # 0x → lose most of the time (75%)
         return '0x'
-    elif r < 80:  # 1x–2x probability 10%
+    elif r < 90:  # 1x–2x → small win (15%)
         return f"{random.randint(1, 2)}x"
-    elif r < 90:  # 3x–5x probability 10%
+    elif r < 97:  # 3x–5x → medium win (7%)
         return f"{random.randint(3, 5)}x"
-    elif r < 95:  # 6x–10x probability 5%
+    elif r < 99:  # 6x–10x → rare win (2%)
         return f"{random.randint(6, 10)}x"
-    elif r < 98:  # 11x–15x probability 3%
-        return f"{random.randint(11, 15)}x"
-    else:  # 16x–20x probability 2%
+    else:  # 16x–20x → jackpot (1%)
         return f"{random.randint(16, 20)}x"
 
 
@@ -136,4 +134,5 @@ if st.session_state.history:
 st.button('refresh')
 if st.button('withdraw:'):
     st.text('hahaha you got scamed')
+
 

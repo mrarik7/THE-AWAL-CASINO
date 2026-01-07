@@ -62,7 +62,7 @@ if st.button('🎰 SPIN'):
         for i in range(100):
             progress.progress(i + 1)
             status.text(f"Spinning {i+1}%")
-            time.sleep(0.04)
+            time.sleep(0.02)
         progress.empty()
         status.empty()
         #-----------------------
@@ -134,6 +134,7 @@ if st.session_state.history:
 
 if st.button('withdraw:'):
     st.text('hahaha you got scamed')
+
 
 
 

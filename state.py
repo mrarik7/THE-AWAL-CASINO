@@ -111,7 +111,7 @@ if st.session_state.result:
         unsafe_allow_html=True
     )
 #---------------------------------------------------------
-
+st.button('refresh')
 st.text('🪫 Recharge')
 amount = st.text_input('💰 Amount')
 
@@ -131,8 +131,9 @@ if st.session_state.history:
         st.sidebar.markdown(f"<p style='color:{color};'>#{i} Bet: {bet_amount}, Result: {result}, Outcome: {outcome}</p>", unsafe_allow_html=True)
 #------------------------------------------------
 
-st.button('refresh')
+
 if st.button('withdraw:'):
     st.text('hahaha you got scamed')
+
 
 

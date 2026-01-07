@@ -12,21 +12,21 @@ if 'result' not in st.session_state:
 if 'history' not in st.session_state:
     st.session_state.history = []  
 
-# ---------------- SPIN LOGIC ----------------
-def spin_result():
-    r = random.random() * 100  # 0–100%
 
-    if r < 45:  # 0x probability
+def spin_result():
+    r = random.random() * 100  
+
+    if r < 45:  
         return '0x'
-    elif r < 60:  # 45 + 15 → 1x–2x
+    elif r < 60: 
         return f"{random.randint(1, 2)}x"
-    elif r < 90:  # 60 + 30 → 3x–5x
+    elif r < 90:  
         return f"{random.randint(3, 5)}x"
-    elif r < 115:  # 90 + 25 → 6x–10x
+    elif r < 115:
         return f"{random.randint(6, 10)}x"
-    elif r < 135:  # 115 + 20 → 11x–15x
+    elif r < 135:  
         return f"{random.randint(11, 15)}x"
-    else:  # remaining 10% → 16x–20x
+    else:  
         return f"{random.randint(16, 20)}x"
 
 # ---------------- UI ----------------
@@ -35,21 +35,26 @@ st.markdown(f"<h3 style='text-align:center; color:#ff00ff;'>📈 Balance: {st.se
 #------------------------------------------
 
 
+# make bet value persistent and keep max_value constant
+if 'bet' not in st.session_state:
+    st.session_state.bet = 1  # default value
+
 bet = st.number_input(
     '💸 Place your bet',
     min_value=1,
-    max_value=st.session_state.bal,
-    step=1
+    max_value=5000,  # or any large number you want
+    step=1,
+    key='bet'
 )
+
+
 
 
 if st.button('🎰 SPIN'):
 
     if bet > st.session_state.bal:
         st.error("❌ Not enough balance")
-
     else:
-        
         st.session_state.bal -= bet
 
         # loading animation
